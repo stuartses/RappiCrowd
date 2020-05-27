@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rappicrowdContainer.apps.RappicrowdcontainerConfig',
     'rest_framework',
     'corsheaders',
-    'frontend',
+#    'frontend',
+    'personins.apps.PersoninsConfig',
 ]
 
 MIDDLEWARE = [

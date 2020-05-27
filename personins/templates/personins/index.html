@@ -1,0 +1,17 @@
+<h1>Personal Insights of a Twetter Profile</h1>
+
+<script>
+function wait() {
+	document.getElementById('status').style.display = 'block';
+}
+</script>
+<form action="{% url 'personins:load' %}" method="post">{% csrf_token %}
+ <b>Enter a public user profile begining with "@"</b></br>example: @elonmusk </br>
+ <input type="text" name="profile" id="profile" value="@elonmusk">
+ <input type="submit" value="Load" onclick="wait();">
+</form>
+
+<div id="status" style="text-align: center; color: blue; display: none;">
+	<h3>Wait, this can take time...</h3>
+</div>
+

@@ -23,5 +23,6 @@ urlpatterns = [
     path(r'countries', views.CountriesAPIView.as_view(), name='countries-list'),
     path(r'test1', views.test1),
     path(r'test2', views.test2),    
-    path('', include('frontend.urls')),
+    # path('', include('frontend.urls')),
+    path('personins/', include('personins.urls')),  # Twitter Insights
 ]
