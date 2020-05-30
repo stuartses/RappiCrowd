@@ -9,9 +9,9 @@ class Navbar extends React.Component {
         return(
         <div className="Navbar">
             <div className="container-fluid">
-            <Link className='Navbar__brand' to="/">
-                <img className='Navbar__brand-logo' src={logo} alt ='Logo'></img>
-            </Link>
+                <Link to="/">
+                    <img className='Navbar__brand-logo' src={logo} alt ='Logo'></img>
+                </Link>
             </div>
         </div>
         )}

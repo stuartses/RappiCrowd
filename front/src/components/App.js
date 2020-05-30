@@ -4,13 +4,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Layout from './Layout';
 import Landing from '../pages/Landing';
 import Solicitud from '../pages/Solicitud';
-import ExplicaciónDomiciliario from '../pages/ExplicaciónDomiciliario'
-import ExplicaciónInversor from '../pages/ExplicaciónInversor'
-import RegistroDomiciliario from '../pages/RegistroDomiciliario'
-import RegistroInversor from '../pages/RegistroInversor'
+import ExplicaciónDomiciliario from '../pages/ExplicaciónDomiciliario';
+import ExplicaciónInversor from '../pages/ExplicaciónInversor';
+import RegistroDomiciliario from '../pages/RegistroDomiciliario';
+import RegistroInversor from '../pages/RegistroInversor';
 import NotFound from '../pages/NotFound';
 
-function App() {
+function App () {
     return (
         <BrowserRouter>
         <Layout>
