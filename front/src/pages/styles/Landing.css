@@ -5,6 +5,10 @@
     background: #FAFAF8;
 }
 
+.LandingContainer {
+    background: #FAFAF8 !important;
+}
+
 .body__message {
     padding: 0px 130px 0;
     background: linear-gradient(rgba(68, 48, 41, 0.3), rgba(68, 48, 41, 0.3)), url('../../images/rappitendero.jpg');

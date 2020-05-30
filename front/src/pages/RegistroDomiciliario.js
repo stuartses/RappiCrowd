@@ -1,67 +1,90 @@
 import React from 'react';
-import './styles/RegistroDomiciliario.css'
+
+import './styles/Registro.css'
 
 function RegistroDomiciliario() {
     return (
     <React.Fragment>
-        <div className='container p-3 my-3'>
-            <h1>Registro</h1>
-            <form>
-                <h2>Comencemos con datos básicos</h2>
-                <div class='form-group'>
-                    <label for="InputName">Nombre completo</label>
-                    <input type="text" class="form-control" id="NombreDomiciliario" placeholder="Nombre completo"/>
-                    <label for="InputLastName">Apellidos</label>
-                    <input type="text" class="form-control" id="ApellidoDomiciliario" placeholder="Apellidos"/>
-                    <label for="InputBirthDate">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" id="FechaNacimiento" placeholder="Fecha de nacimiento"/>
-                    <label for="InputNacionality">Nacionalidad</label>
-                    <input type="text" class="form-control" id="PaísNacimiento" placeholder="País de nacimiento"/>
-                    <label for="InputNacionality">Ciudad de residencia</label>
-                    <input type="text" class="form-control" id="CiudadResidencia" placeholder="Ciudad de residencia"/>
-                    <label for="InputIdentityDocument">Documento de identidad</label>
-                    <input type="number" class="form-control" id="DocumentoIdentidad" placeholder="Ciudad de residencia"/>
-                    <label for="InputPhoneNumber">Número de celular</label>
-                    <input type="number" class="form-control" id="NúmeroCelular" placeholder="Número de celular"/>
+        <div className='container pl-0 pr-5 my-3'>
+            <div className='row'>
+                <div className='col-sm-3 img-signUpDomiciliario'>
+                    { /* La imagen es mostrada con CSS aquí  */ }
+                    <h1 className='img-signUpContent'>Registro</h1>
                 </div>
 
-                <h2>Y ahora unos datos para motivarnos a contribuir</h2>
-                <div class='form-group'>
-                    <label for="InputName">
-                        ¿A cuánto ascienden tus gastos mensuales?
-                        Piensa en vivienda, servicios, ocio, recreación, etc
-                    </label>
-                    <input type="number" class="form-control" id="GastosMensuales" placeholder="Ingresa Gastos mensuales"/>
-                    
+                <div className='col-9 p-4 m-0'>
+                    <div className='form-row'>
+                        <h2 className='pt-0 h3 font-weight-bold'>Comencemos con datos básicos</h2>
+                        <div className='form-group'>
+                            <div className='form-input'>
+                                <label htmlfor="NombreDomiciliario" required>Nombre completo</label>
+                                <input type="text" className="form-control w-100" id="NombreDomiciliario" placeholder="Nombre completo"/>
+                            </div>
+                            <div className='form-input'>
+                                <label htmlfor="ApellidoDomiciliario">Apellidos</label>
+                                <input type="text" className="form-control w-100" id="ApellidoDomiciliario" placeholder="Apellidos completos"/>
+                            </div>
+                            <div className='form-input'>
+                                <label htmlfor="FechaNacimiento">Fecha de nacimiento</label>
+                                <input type="date" className="form-control w-100" id="FechaNacimiento" placeholder="Fecha de nacimiento"/>
+                            </div>
+                        </div>
+                        <div className='form-group'>
+                            <div className='form-input'>
+                                <label htmlfor="CiudadResidencia">Ciudad de residencia</label>
+                                <input type="text" className="form-control w-100" id="CiudadResidencia" placeholder="Ciudad de residencia"/>
+                            </div>
+                            <div className='form-input'>
+                                <label htmlfor="DocumentoIdentidad">Documento de identidad</label>
+                                <input type="number" className="form-control w-100" id="DocumentoIdentidad" placeholder="Número de documento"/>
+                            </div>
+                            <div className='form-input'>
+                                <label htmlfor="NúmeroCelular">Número de celular</label>
+                                <input type="number" className="form-control w-100" id="NúmeroCelular" placeholder="Número de celular"/>
+                            </div>
+                        </div>
 
-                    <label for="InputDíasDisponibles">
-                        ¿Cuántos días disponibles tienes para trabajar por semana?
-                    </label>
-                    <input type="number" class="form-control" id="DíasDisponibles" placeholder="Ingresa número de días"/>
+                        <h2 className='pt-0 h3 font-weight-bold'>Y ahora unos datos para motivarnos a contribuir</h2>
+                        <div className='form-group'>
 
-                    <label for="HorasPorDía">
-                        ¿Cuántos horas por día tienes pensando trabajar?
-                    </label>
-                    <input type="number" class="form-control" id="HorasPorDía" placeholder="Ingresa horas por día"/>
-                </div>
-                    
-                <h2>Solo quedan los datos de usuario</h2>
-                <div class='form-group'>
-                    <label for="InputUsuario">
-                        ¿A cuánto ascienden tus gastos mensuales?
-                        Piensa en vivienda, servicios, ocio, recreación, etc
-                    </label>
-                    <input type="text" class="form-control" id="Usuario" placeholder="Ingresa tu nombre de usuario para registro"/>
-                    
+                            <div className='form-input'>
+                                <label htmlfor="GastosMensuales">
+                                    Gastos mensuales
+                                </label>
+                                <input type="number" className="form-control w-100" id="GastosMensuales" placeholder="Ingresa Gastos mensuales"/>
+                                <small id="gastosMensualesHelp" className="form-text text-muted">Piensa en vivienda, servicios, deudas, recreación, etc.</small>
+                            </div>
 
-                    <label for="InputContraseña">
-                        Contraseña
-                    </label>
-                    <input type="password" class="form-control" id="Contraseña" placeholder="Ingresa tu contraseña para registro"/>
-                    
+                            <div className='form-input'>
+                                <label htmlfor="DíasDisponibles">
+                                    Días disponibles para trabajar por semana
+                                </label>
+                                <input type="number" className="form-control w-100" id="DíasDisponibles" placeholder="Ingresa número de días"/>
+                            </div>
+                        </div>
+
+                        <div className='form-group'>
+                            <label htmlfor="HorasPorDía">
+                                Horas disponibles por día para trabajar
+                            </label>
+                            <input type="number" className="form-control w-100" id="HorasPorDía" placeholder="Ingresa horas por día"/>
+                        </div>
+
+                        <h2 className='pt-0 h3 font-weight-bold'>Solo quedan los datos de usuario</h2>
+                        <div className='form-group'>
+                            <input type="text" className="form-control w-100" id="Ingresa tu usuario" placeholder="Usuario"/>
+                        </div>
+
+                        <div className='form-group'>
+                            <input type="password" className="form-control w-100" id="Ingresa tu contraseña" placeholder="Contraseña"/>
+                        </div>
+
+                    </div>
+                    <div>
+                        <button type="submit" className="float-right btn-rappi">Registrarse</button>
+                    </div>
                 </div> 
-                <button type="submit" class="btn-rappi">Submit</button>
-            </form>
+            </div>
         </div>
     </React.Fragment>
     )

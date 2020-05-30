@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles/ExplicaciónDomiciliario.css';
+import './styles/Explicación.css';
 
 function ExplicaciónDomiciliario() {
     return (
