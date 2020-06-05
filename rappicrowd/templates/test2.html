@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="utf-8">
+		<title>test 2</title>
+        <head>
+	<body>		    	
+		<h1>Countries</h1>
+		<UL>
+		        {% for country in countries %}
+				<LI>{{ country.countryName }}</LI>
+			{% endfor %}
+		</UL>
+	</body>
+</html>
