@@ -38,7 +38,7 @@
           "trait_id": "facet_imagination",
           "name": "Imagination",
           "category": "personality",
-          "percentile": 0.9253803144774218,
+          "percentile": 0.5,
           "raw_score": 0.8064945054684636,
           "significant": true
         },
@@ -80,7 +80,7 @@
           "trait_id": "facet_cautiousness",
           "name": "Cautiousness",
           "category": "personality",
-          "percentile": 0.6710875755234271,
+          "percentile": 0.8,
           "raw_score": 0.5204330535144847,
           "significant": true
         },
@@ -88,7 +88,7 @@
           "trait_id": "facet_dutifulness",
           "name": "Dutifulness",
           "category": "personality",
-          "percentile": 0.49538582289815164,
+          "percentile": 0.8,
           "raw_score": 0.6586171388643827,
           "significant": true
         },
@@ -170,7 +170,7 @@
           "trait_id": "facet_gregariousness",
           "name": "Gregariousness",
           "category": "personality",
-          "percentile": 0.04507330998650655,
+          "percentile": 0.9,
           "raw_score": 0.3662219097013412,
           "significant": true
         }
@@ -196,7 +196,7 @@
           "trait_id": "facet_cooperation",
           "name": "Cooperation",
           "category": "personality",
-          "percentile": 0.7211539788800011,
+          "percentile": 0.9,
           "raw_score": 0.6147106675179945,
           "significant": true
         },
@@ -204,7 +204,7 @@
           "trait_id": "facet_modesty",
           "name": "Modesty",
           "category": "personality",
-          "percentile": 0.02554399421965886,
+          "percentile": 0.9,
           "raw_score": 0.3454417215191744,
           "significant": true
         },
@@ -254,7 +254,7 @@
           "trait_id": "facet_anxiety",
           "name": "Prone to worry",
           "category": "personality",
-          "percentile": 0.2937750505830631,
+          "percentile": 0.9,
           "raw_score": 0.5571224952382812,
           "significant": true
         },
@@ -278,7 +278,7 @@
           "trait_id": "facet_self_consciousness",
           "name": "Self-consciousness",
           "category": "personality",
-          "percentile": 0.7591809231566267,
+          "percentile": 0.8,
           "raw_score": 0.5837412694235408,
           "significant": true
         },
@@ -286,7 +286,7 @@
           "trait_id": "facet_vulnerability",
           "name": "Susceptible to stress",
           "category": "personality",
-          "percentile": 0.3084028450125301,
+          "percentile": 0.9,
           "raw_score": 0.4357418170842422,
           "significant": true
         }
