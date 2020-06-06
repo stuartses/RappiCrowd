@@ -54,7 +54,8 @@ def send(type_in='', data_json='', data_text=''):
         headers = {
             'Content-Type': 'text/plain',
             'charset': 'utf-8',
-            'Accept': 'application/json'}
+            'Accept': 'application/json',
+            'Content-Language': 'es'}
         data_bytes = bytes(data_text, 'utf-8')
 
     r_dict = {}  # request response

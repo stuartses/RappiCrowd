@@ -57,8 +57,6 @@ def get_tw(user_name):
                                     tweet_mode="extended").items(300):
             status_dict = {}
             status_dict['content'] = status._json['full_text']
-            print("****")
-            print(status)
 
             # convert string to date and to integer Unix timestamp
             dt = parse(status._json['created_at'])
