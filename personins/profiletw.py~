@@ -97,7 +97,7 @@ def get(user_name='', profile=''):
         profile: long string with text written by user
 
     Return:
-        json with data analysis
+        json with personality insights
     """
 
     if (profile == '' and user_name == ''):

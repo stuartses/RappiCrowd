@@ -78,10 +78,10 @@ def send(type_in='', data_json='', data_text=''):
         return {'status': 'error',
                 'message': 'ibmerror',
                 'detail': str(e)}
+    """
+    # end
 
     r_dict = r.json()  # class dict (give dict not json)
-    """
-    #end
 
     # check if response has an error code
     if 'code' in r_dict:

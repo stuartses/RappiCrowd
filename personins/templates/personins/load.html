@@ -2,53 +2,13 @@
 <html>
   <head>
       <title>Personality Insights Results</title>
-      <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
       <script>
         const result = {{ profile_result|safe }};
-	    const personal = result.personality
-        console.log(personal);
+        console.log(result);
       </script>
   </head>
   <body>
 	<h1>Results</h1>
-    <div id="container0" style="width: 500px; height: 300px"></div>
-	<div id="container1" style="width: 500px; height: 300px"></div>
-	<div id="container2" style="width: 500px; height: 300px"></div>
-	<div id="container3" style="width: 500px; height: 300px"></div>
-	<div id="container4" style="width: 500px; height: 300px"></div>
-	<script>
-
-	for (let i = 0; i < personal.length; i++) {
-		anychart.onDocumentReady(function() {
-
-		let children = personal[i].children;
-		let rows = [];
-		for (let j = 0; j < children.length; j++) {
-			let charScore = children[j].percentile * 100;
-			let character = [children[j].name, charScore];
-			rows.push(character);
-		}
-
-		// the data 
-		let data = {
-		  header: ["Name", "Score %"],
-		  rows: rows};
-
-		
-
-		// create the chart
-		let chart = anychart.bar();
-	 
-		// add the data
-		chart.data(data);
-
-		// set the chart title
-		personScore = personal[i].percentile * 100 + "%";
-		chart.title(personal[i].name + ", score: " + personScore);
-		chart.container('container' + i);
-		chart.draw();
-	});
-	}
-	</script>
+ 
   </body>
 </html>

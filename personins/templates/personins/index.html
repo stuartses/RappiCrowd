@@ -7,7 +7,9 @@ function wait() {
 </script>
 <form action="{% url 'personins:load' %}" method="post">{% csrf_token %}
  <b>Enter a public user profile begining with "@"</b></br>example: @elonmusk </br>
- <input type="text" name="profile" id="profile" value="@elonmusk">
+ <input type="text" name="user_name" id="user_name" value=""></br>
+ <textarea id="profile" name="profile" rows="30" cols="100">
+ </textarea></br>
  <input type="submit" value="Load" onclick="wait();">
 </form>
 
