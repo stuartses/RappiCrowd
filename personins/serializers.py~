@@ -1,6 +1,0 @@
-from rest_framework import serializers
-
-class PersoninsSerializer(serializers.Serializer):
-   """Your data serializer, define your fields here."""
-   profile = serializers.CharField()
-   worker_id = serializers.IntegerField()
