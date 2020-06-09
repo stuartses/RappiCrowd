@@ -1,0 +1,62 @@
+.btn btn-primary {
+	width: 50%;
+}
+
+.img-signUpDomiciliario {
+	background: linear-gradient(#490c0696, #5c40099d);
+	background-size: cover;
+}
+
+.img-signUpInversor {
+	background: linear-gradient(#490c0696, #5c40099d);
+	background-size: cover;
+}
+
+.img-signUpContent {
+	font-family: 'Raleway';
+	font-size: 36px;
+	font-weight: 900px;
+	color: white;
+	text-transform: uppercase;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+	width: 100%;
+}
+
+.form-row .form-group {
+	width: 50%;
+	padding: 0 30px;
+}
+
+.form-input {
+	position: relative;
+}
+
+.form-input, .form-select, .form-radio {
+	margin-bottom: 23px;
+}
+
+label {
+	font-size: 14px;
+	text-transform: uppercase;
+	margin-bottom: 7px;
+}
+
+input {
+	box-sizing: border-box;
+	border: 1px solid #ebebeb;
+	padding: 14px 20px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	font-size: 14px;
+}

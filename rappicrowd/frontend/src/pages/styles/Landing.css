@@ -1,0 +1,67 @@
+.container {
+	background: #FAFAF8;
+}
+
+.LandingContainer {
+	background: #FAFAF8 !important;
+}
+
+.body__message {
+	padding: 0px 130px 0;
+	background: linear-gradient(rgba(68, 48, 41, 0.3), rgba(68, 48, 41, 0.3));
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 80vh;
+}
+
+.body__message__felicidad {
+	font-family: 'Raleway', sans-serif;
+	color: white;
+	padding: 120px 0 80px 0;
+	font-weight: 700;
+	font-size: 80px;
+	text-align: center;
+}
+
+.body__message__puedes-contribuir {
+	font-family: 'poppins', sans-serif;
+	color: white;
+	font-weight: 800;
+	padding: 120px 0 80px 0;
+	text-align: center;
+	font-size: 40px;
+}
+
+.body__message__separator {
+	background-color: #EEFCFF;
+	font-size: 25px;
+	font-weight: 400;
+	height: 20vh;
+}
+
+.body__message__como-contribuir {
+	color: #222222;
+	padding: 50px 0 50px 0;
+	text-align: center;
+	font-weight: 800;
+	font-size: 40px;
+}
+
+.body__message__quiero-ser {
+	font-weight: 400;
+	color: #222222;
+	padding: 10px 0 10px 0;
+	font-size: 20px;
+}
+
+.footer {
+	color: #222222;
+	background-color: #e5edef;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 100px;
+	border-top: 1px solid #e5edef
+}
