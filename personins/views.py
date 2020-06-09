@@ -1,28 +1,16 @@
-from django.shortcuts import get_object_or_404, render
-from django.http import Http404
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import loader
-from django.urls import reverse
-from personins import profiletw
+from django.shortcuts import render
+from django.http import HttpResponse
+from personins import getpersonins
 import json
 
 
 def index(request):
     return render(request, 'personins/index.html')
-    #return HttpResponse('hola')
 
 def load(request):
     profile = request.POST.get('profile')
     user_name = request.POST.get('user_name')
-    get_insights = profiletw.get(user_name, profile)
-    """
-    return render(request, 'personins/load.html',
-                  {'profile_result': get_insights})
-    """
-    """
-    result = {}
-    result['user'] = user_name
-    result['profile'] = profile
-    result_json = json.dumps(result)
-    """
-    return HttpResponse(get_insights)
+    mode = request.POST.get('mode')
+    get_insights = getpersonins.get(user_name, profile, mode)
+
+    return HttpResponse(get_insights, content_type='application/json')

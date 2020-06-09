@@ -11,7 +11,7 @@ import json
 from personins import score
 
 
-def send(type_in='', data_json='', data_text=''):
+def send(type_in='', data_json='', data_text='', mode=''):
     """
     Make a http request to IBM cloud with the twitter profile in json
     This method use a specific url and API Key
@@ -63,31 +63,25 @@ def send(type_in='', data_json='', data_text=''):
     score_dict = {}
 
     # for develop using a json file with a response and avoid request
-    # """
-    with open('personins/response.json', 'r') as f:
-        tw = f.read()
-        r_dict = json.loads(tw)
-    # end dev
-    # """
+    if (mode == 'dev'):
+        with open('personins/dev-response.json', 'r') as f:
+            tw = f.read()
+            r_dict = json.loads(tw)
+    else:
+        try:
+            r = requests.post(url, headers=headers, auth=auth, data=data_bytes)
+        except requests.exceptions.RequestException as e:
+            return {'status': 'error',
+                    'message': 'ibmerror',
+                    'detail': str(e)}
 
-    # Comment this block when dev
-    """
-    try:
-        r = requests.post(url, headers=headers, auth=auth, data=data_bytes)
-    except requests.exceptions.RequestException as e:
-        return {'status': 'error',
-                'message': 'ibmerror',
-                'detail': str(e)}
-
-    r_dict = r.json()  # class dict (give dict not json)
-    """
-    #end
+        r_dict = r.json()  # class dict (give dict not json)
 
     # check if response has an error code
     if 'code' in r_dict:
         return {'status': 'error',
                 'message': 'ibmerror',
-                'detail': r_dict['content']['error']}
+                'detail': r_dict}
 
     personal_dict = r_dict['personality']
     calc = score.get_score(personal_dict)
