@@ -1,163 +1,108 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getCountries } from '../actions/countries';
-import { getDocutypes } from '../actions/docutypes';
-import { getStates } from '../actions/states';
-import { getCities } from '../actions/cities';
-import { getEducationLevels } from '../actions/educationlevels';
-import { getCurrencies } from '../actions/currencies';
-import { getWorkers } from '../actions/workers';
-import { addWorker } from '../actions/workers';
-	
+/* Esta página contiene las preguntas para el perfilamiento del
+domiciliario. Se encuentra disponible en /perfilamiento */
+
+import React from 'react';
+import axios from "axios";
+
 import './styles/Perfilamiento.css'
 
-export class Perfilamiento extends Component {
-       
-        constructor(props) { 	
-          super(props);  	       
-	  this.state = {
-	    workerName: "",
-	    workerLastName: "",
-            workerBirthday: "",
-            workerCelular: "",
-	    workerEmail: "",
-	    workerCed: "",
-	    workerCedCountryId: "",
-	    workerCedDocutypeId: "",
-	    workerStateId: "",
-	    workerCityId: "",
-	    workerAddress: "",
-	    workerPassword: "",
-            workerEducationLevelId: "",
-            workerSpentsPerMonth: "",
-            workerEarningsPerMonth: "",
-            workerLabourHoursPerDay: "",
-	    workerLicenseDriver: "",
-            workerDaysPerWeek: "",
-            workerTwitter: "",
-            workerFacebook: "",
-            workerCurrencyId: "",
-            workerPsychoTest: "",
-            workerScore: "0"
-          };
-	  
-	  this.changeHandler = this.changeHandler.bind(this);
-	  this.SubmitHandler = this.SubmitHandler.bind(this);      
-	}       
 
-        changeHandler = e => {
-		this.setState({ [e.target.name]: e.target.value });	
-		console.log(e.target);		
-	}	        
+class Perfilamiento extends React.Component {
+    state = {
+        pregunta1: '',
+        pregunta2: '',
+        pregunta3: '',
+        askedQuestions: ''
+    }
 
-	SubmitHandler = e => {
-	  e.preventDefault();
-	  	
-	  
-	    const { workerCed, workerName, workerLastName, workerCelular, workerAddress, workerCityId, workerCedCountryId, workerStateId, workerEducationLevelId, workerSpentsPerMonth, workerEarningsPerMonth, workerLabourHoursPerDay, workerBirthday, workerPassword, workerLicenseDriver, workerDaysPerWeek, workerEmail, workerTwitter, workerFacebook, workerCedDocutypeId, workerCurrencyId, workerPsychoTest, workerScore } = this.state;
-	   	
-	  const workers = { workerCed, workerName, workerLastName, workerCelular, workerAddress, workerCityId, workerCedCountryId, workerStateId, workerEducationLevelId, workerSpentsPerMonth, workerEarningsPerMonth, workerLabourHoursPerDay, workerBirthday, workerPassword, workerLicenseDriver, workerDaysPerWeek, workerEmail, workerTwitter, workerFacebook, workerCedDocutypeId, workerCurrencyId, workerPsychoTest, workerScore };
-	  	
-	  this.props.addWorker(workers);		  	
-        };
+	/* Asigna lo que va escribiendo en el usuario, en el estado del componente */
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value }) // Más info de esto: stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable
+    }
 
-	static propTypes = {
-          countries: PropTypes.array.isRequired,
-          docutypes: PropTypes.array.isRequired,
-          states: PropTypes.array.isRequired,
-	  cities: PropTypes.array.isRequired,
-	  educationlevels: PropTypes.array.isRequired,
-	  currencies: PropTypes.array.isRequired,	
-          workers: PropTypes.array.isRequired	  	
-        };
+	/* Se ejecuta cuando el usuario hace click en el botón enviar */
+    handleClick = e => {
+        console.log("Button was clicked");
+    }
 
-        componentDidMount() {
-          this.props.getCountries();
-          this.props.getDocutypes();
-          this.props.getStates();
-          this.props.getCities();
-	  this.props.getEducationLevels();
-	  this.props.getCurrencies();	
-	  this.props.getWorkers();
-	  this.props.addWorker();	
+	/* Se ejecuta cuando se envía el formulario */
+    handleSubmit = e => {
+        let joinedText = ''
+        e.preventDefault();
+        for (let pregunta in this.state) {
+            joinedText += this.state[pregunta] + "  ";
         }
+        this.setState({askedQuestions: joinedText}, () => {
+			console.log('askedQuestions:', this.state.askedQuestions)
+            // Aquí tiene que ir axios!
+			// axios.post('URL', 'contenido a enviar').then(response => {
+			//     console.log(response)
+			// })
+			// .catch(error => {
+			//     console.log(error)
+			// })
+        })
+    }
 
-	render() {	    	
-	    const { workerCed, workerName, workerLastName, workerCelular, workerAddress, workerCityId, workerCedCountryId, workerStateId, workerEducationLevelId, workerSpentsPerMonth, workerEarningsPerMonth, workerLabourHoursPerDay, workerBirthday, workerPassword, workerLicenseDriver, workerDaysPerWeek, workerEmail, workerTwitter, workerFacebook, workerCedDocutypeId, workerCurrencyId, workerPsychoTest, workerScore } = this.state;
-               
-            const workerCedCountries = this.props.countries.map((wc) => <option key={wc.countryId} value={wc.countryId}>{wc.countryName}</option>); 
-            
-            const workerCedDocutypes = this.props.docutypes.map((wd) => <option key={wd.docutypeId} value={wd.docutypeId}>{wd.docutypeName}</option>); 
-	    	
-            const workerStates = this.props.states.map((ws) => <option key={ws.stateId} value={ws.stateId}>{ws.stateName}</option>);
-            
-            const workerCities = this.props.cities.map((wci) => <option key={wci.cityId} value={wci.cityId}>{wci.cityName}</option>); 
+    render() {
+        return (
+        <React.Fragment>
+            <div className='container my-5 py-3 border rounded'>
+                <h1 className='px-4 font-weight-bold'>Perfilamiento</h1>
+                <form className='row px-5 py-3' onSubmit={this.handleSubmit}>
+                    <p className=''>
+                        Las siguientes preguntas nos permitirán conocerte mejor.
+                        Es importante que contestes de forma detallada cada pregunta. Algunas preguntas
+                        tienen un mínimo de caracteres requerido.
+                    </p>
 
-            const workerEducationLevels = this.props.educationlevels.map((we) => <option key={we.educationLevelId} value={we.educationLevelId}>{we.educationLevelName}</option>); 
+                    <div className='form-group h-100 w-100 border-bottom'>
+                        <label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Pregunta</h2></label>
+                        <textarea
+                            className="form-control border-bottom"
+                            minLength="150"
+                            title="Tu respuesta debe ser de al menos 150 caracteres. Por favor, sé un poco más detallado"
+                            placeholder="Respuesta"
+                            required
+                            name='pregunta1'
+                            value={this.state.pregunta1}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-            		
-            const workerCurrencies = this.props.currencies.map((wcu) => <option key={wcu.currencyId} value={wcu.currencyId}>{wcu.currencyName}</option>);
+                    <div className='form-group h-100 w-100 border-bottom'>
+                        <label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Pregunta</h2></label>
+                        <textarea
+                            className="form-control border-bottom"
+                            name="pregunta2"
+                            minLength="150"
+                            title="Tu respuesta debe ser de al menos 150 caracteres. Por favor, sé un poco más detallado"
+                            placeholder="Respuesta"
+                            required
+                            value={this.state.pregunta2}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-	    return (
-		    <React.Fragment>
-		        <div className='container my-5 py-3 border rounded'>
-		                    <h1 className='px-4 font-weight-bold'>Perfilamiento</h1>
-		                    <form className='row px-5 py-3' onSubmit={this.SubmitHandler}>
-		                        <p className=''>
-		                            Las siguientes preguntas nos permitirán conocerte mejor.
-		                            Es importante que contestes de forma detallada cada pregunta. Algunas preguntas
-		                            tienen un mínimo de caracteres requerido.
-		                        </p>
+                    <div className='form-group h-100 w-100 border-bottom'>
+                        <label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Pregunta</h2></label>
+                        <textarea
+                            className="form-control border-bottom"
+                            name="pregunta3"
+                            minLength="150"
+                            title="Tu respuesta debe ser de al menos 150 caracteres. Por favor, sé un poco más detallado"
+                            placeholder="Respuesta"
+                            required
+                            value={this.state.pregunta3}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <button className='' onClick={this.handleClick}>Enviar</button>
+                </form>
+            </div>
+        </React.Fragment>
+        )
+    };
+};
 
-		                        <div className='form-group h-100 w-100 border-bottom'>
-		                            <label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Pregunta</h2></label>
-		                            <textarea
-		                                className="form-control border-bottom"
-		                                minLength="150"
-		                                title="Tu respuesta debe ser de al menos 150 caracteres. Por favor, sé un poco más detallado"
-		                                placeholder="Respuesta"		                                
-		                                name='pregunta1'		                                
-		                            />
-		                        </div>
-
-		                        <div className='form-group h-100 w-100 border-bottom'>
-		                            <label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Pregunta</h2></label>
-		                            <textarea
-		                                className="form-control border-bottom"
-		                                name="pregunta2"
-		                                minLength="150"
-		                                title="Tu respuesta debe ser de al menos 150 caracteres. Por favor, sé un poco más detallado"
-		                                placeholder="Respuesta"		                                
-		                            /> 
-		                        </div>
-
-		                        <div className='form-group h-100 w-100 border-bottom'>
-		                            <label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Pregunta</h2></label>
-		                            <textarea
-		                                className="form-control border-bottom"
-		                                name="pregunta3"
-		                                minLength="150"
-		                                title="Tu respuesta debe ser de al menos 150 caracteres. Por favor, sé un poco más detallado"
-		                                placeholder="Respuesta"
-		                            />
-		                        </div>
-		                        <button type="submit">Enviar</button>
-		                    </form>
-		                </div>    		            		        
-		    </React.Fragment>
-	    )
-        }		
-}
-
-const mapStateToProps = state => ({
-  countries: state.countries.countries,
-  docutypes: state.docutypes.docutypes,
-  states: state.states.states,
-  cities: state.cities.cities,
-  educationlevels: state.educationlevels.educationlevels,
-  currencies: state.currencies.currencies,	
-  workers: state.workers.workers	
-});
-
-export default connect(mapStateToProps, { getCountries, getDocutypes, getStates, getCities, getWorkers, getEducationLevels, getCurrencies, addWorker } )(Perfilamiento);
+export default Perfilamiento;

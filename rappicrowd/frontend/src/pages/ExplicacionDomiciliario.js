@@ -7,7 +7,7 @@ function ExplicacionDomiciliario() {
 	    return (
 		        <React.Fragment>
 		            <div className='container p-3 my-3'>
-		                <h1 className='my-4'>¿Cómo funciona?</h1>
+		                <h1 className='my-4'>¿Cómo funciona?????</h1>
 		                    <div className='row'>
 
 		                        <div className='col-4'>

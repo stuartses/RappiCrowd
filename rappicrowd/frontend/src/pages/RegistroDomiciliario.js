@@ -60,7 +60,7 @@ export class RegistroDomiciliario extends Component {
 	  const workers = { workerCed, workerName, workerLastName, workerCelular, workerAddress, workerCityId, workerCedCountryId, workerStateId, workerEducationLevelId, workerSpentsPerMonth, workerEarningsPerMonth, workerLabourHoursPerDay, workerBirthday, workerPassword, workerLicenseDriver, workerDaysPerWeek, workerEmail, workerTwitter, workerFacebook, workerCedDocutypeId, workerCurrencyId, workerPsychoTest, workerScore };
 	  	
 	  this.props.addWorker(workers);		  
-	  this.props.history.push('/perfilamiento');	
+	  this.props.history.push('/login-solicitante');	
         };
 
 	static propTypes = {

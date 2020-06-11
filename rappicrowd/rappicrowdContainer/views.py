@@ -61,6 +61,9 @@ class InvestorsPerWorkersAPIView(generics.ListCreateAPIView):
     queryset = InvestorsPerWorkers.objects.all()
     serializer_class = InvestorsPerWorkersSerializer
 
+def index(request):
+    return render(request, 'frontend/index.html')
+
 def test1(request):
     return HttpResponse('Prueba1')
 
