@@ -36,13 +36,10 @@ def send(type_in='', data_json='', data_text='', mode=''):
                 'message': 'noprofile',
                 'detail': 'No profile text content'}
 
-    url = "https://api.us-south.personality-insights.watson.cloud.ibm.com/"\
-          "instances/a3341e42-5c96-4271-ab4e-7085fd3c7804/v3/profile?"\
-          "version=2017-10-13/v3/profile?version=2017-10-13&"\
-          "consumption_preferences=true&raw_scores=true"
+    url = ""
 
     auth = HTTPBasicAuth(
-        'apikey', 'I3f9Cnyv5LWMHFpWG-2yqQlUKre_Gry3VT0E7zBlBMRt')
+        'apikey', 'I')
 
     if (type_in == 'json'):
         headers = {
