@@ -1,7 +1,12 @@
 import axios from "axios";
-
 import { GET_WORKERS, ADD_WORKER } from "./types";
+import { getToken } from '../utils/get-token';
 
+
+const csrftoken = getToken('csrftoken');
+const headers = {
+  "X-CSRFToken": csrftoken
+}
 
 export const getWorkers = () => dispatch => {
   axios
@@ -9,23 +14,24 @@ export const getWorkers = () => dispatch => {
     .then(res => {
       dispatch({
         type: GET_WORKERS,
-	payload: res.data      
-      });
+        payload: res.data
+      })
     })
-    .catch(err => console.log(err));	
-};
+    .catch(err => console.log(err))
+}
 
-
-export const addWorker = (worker) => dispatch => {  	
+export const addWorker = (worker) => dispatch => {
   axios
-    .post("/workers", worker)
+    .post("/workers", worker, {
+      headers: headers
+    })
     .then(res => {
       dispatch({
         type: ADD_WORKER,
-	payload: res.data      
-      });
+        payload: res.data
+      })
     })
     .catch(err => {
-       console.log(err.response)
-    });
-};
+      console.log(err.response)
+    })
+}
