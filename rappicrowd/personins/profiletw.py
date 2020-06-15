@@ -28,10 +28,10 @@ def get_tw(user_name):
                 'message': 'notwitter',
                 'detail': 'Twitter user_name field is empty'}
 
-    consumer_key = 'x94kF5iLFqT7bVHMWPb1ScakZ'
-    consumer_secret = 'wOfqgs70te4ExZUX13KfbgkNB3wlXbUvmbsE0XnpVhSZ6M2SMQ'
-    access_token = '1141808332031909888-ZfJa77YxSGQ6vsnATQk5IplOoIl3qw'
-    access_token_secret = 'ecVLc7cUZxH7MB0pCdrQXTKXcv4KSnT1u1NIHiUeGa0A0'
+    consumer_key = ''
+    consumer_secret = ''
+    access_token = ''
+    access_token_secret = ''
 
     # OAuth process, using the keys and tokens
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
