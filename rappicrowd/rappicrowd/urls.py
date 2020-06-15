@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('personins/', include('personins.urls')),  # IBM Insights
     path(r'countries', views.CountriesAPIView.as_view(), name='countries-list'),
     path(r'states', views.StatesAPIView.as_view(), name='states-list'),
     path(r'cities', views.CitiesAPIView.as_view(), name='cities-list'),

@@ -3,7 +3,7 @@ import './styles/Footer.css'
 
 export class Footer extends React.Component {
   render() {
-    return <p className='footer-end'> 2020 Rappi</p>;
+    return <p className='footer-end'> RappiCrowd - 2020 Zoombieland Hack</p>
   }
 }
 
