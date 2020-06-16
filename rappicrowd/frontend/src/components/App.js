@@ -1,3 +1,4 @@
+/* App.js */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -14,6 +15,7 @@ import SolicitanteList from '../pages/SolicitanteList';
 import Perfilamiento from '../pages/Perfilamiento';
 import InvertirEn from '../pages/InvertirEn';
 import SolicitanteURL from '../pages/SolicitanteURL';
+import About from '../pages/About';
 import NotFound from '../pages/NotFound';
 
 
@@ -28,6 +30,7 @@ class App extends Component {
         	<Layout>
 				<Switch>
 					<Route exact path='/' component={Landing}></Route>
+					<Route exact path='/about' component={About}></Route>
 					<Route exact path='/como-funciona-domiciliario' component={ExplicacionDomiciliario}></Route>  
 					<Route exact path='/como-funciona-inversor' component={ExplicacionInversor}></Route>  
 					<Route exact path='/registro-inversor' component={RegistroInversor}></Route>

@@ -3,13 +3,13 @@
 }
 
 .img-signUpDomiciliario {
-	background: linear-gradient(#490c0696, #5c40099d);
-	background-size: cover;
+    background: linear-gradient(#490c0696, #5c40099d), url('/static/rappiEnBicicleta.png');
+    background-size: cover;
 }
 
 .img-signUpInversor {
-	background: linear-gradient(#490c0696, #5c40099d);
-	background-size: cover;
+    background: linear-gradient(#490c0696, #5c40099d), url('/static/crowdFund.png');
+    background-size: cover;
 }
 
 .img-signUpContent {

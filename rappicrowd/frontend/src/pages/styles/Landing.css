@@ -12,7 +12,7 @@
 
 .body__message {
 	padding: 0px 130px 0;
-	background: linear-gradient(rgba(68, 48, 41, 0.3), rgba(68, 48, 41, 0.3)), url('http://161.35.98.240:8000/static/rappitendero.png');
+	background: linear-gradient(rgba(68, 48, 41, 0.3), rgba(68, 48, 41, 0.3)), url('/static/rappitendero.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
