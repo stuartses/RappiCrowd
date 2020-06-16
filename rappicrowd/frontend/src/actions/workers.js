@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_WORKERS, ADD_WORKER } from "./types";
+import { GET_WORKERS, ADD_WORKER, UPDATE_WORKER } from "./types";
 import { getToken } from '../utils/get-token';
 
 
@@ -28,6 +28,23 @@ export const addWorker = (worker) => dispatch => {
     .then(res => {
       dispatch({
         type: ADD_WORKER,
+        payload: res.data
+      })
+    })
+    .catch(err => {
+      console.log(err.response)
+    })
+}
+
+
+export const updateWorker = (worker) => dispatch => {
+  axios
+    .patch(`/workers/update/${worker.workerCed}/`, worker, {
+      headers: headers
+    })
+    .then(res => {
+      dispatch({
+        type: UPDATE_WORKER,
         payload: res.data
       })
     })

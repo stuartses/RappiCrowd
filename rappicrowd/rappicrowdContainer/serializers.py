@@ -45,13 +45,13 @@ class DocutypesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Docutypes
         fields = "__all__"
-        
+
 class WorkersSerializer(serializers.ModelSerializer):
     '''serializer Workers model'''
     class Meta:
         model = Workers
         fields = "__all__"
-        
+
 class InvestorsSerializer(serializers.ModelSerializer):
     '''serializer Investors model'''
     class Meta:

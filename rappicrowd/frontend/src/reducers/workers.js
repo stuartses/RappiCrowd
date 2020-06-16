@@ -1,4 +1,4 @@
-import { GET_WORKERS } from "../actions/types.js";
+import { GET_WORKERS, UPDATE_WORKER } from "../actions/types.js";
 
 const initialState = {
 	workers: []
@@ -7,6 +7,11 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_WORKERS:
+      return {
+        ...state,
+	workers: action.payload
+      };
+    case UPDATE_WORKER:
       return {
         ...state,
 	workers: action.payload

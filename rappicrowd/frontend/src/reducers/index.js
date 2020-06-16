@@ -17,5 +17,5 @@ export default combineReducers({
     investors,
     educationlevels,
     currencies,
-    workers	
+    workers
 });
