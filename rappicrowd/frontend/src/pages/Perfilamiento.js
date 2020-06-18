@@ -54,12 +54,11 @@ export class Perfilamiento extends Component {
 			if (/\S/.test(this.state.askedQuestions))
 				profile = this.state.askedQuestions;
 
+			const user_name = this.state.twitterPerson;
 
-		    const user_name = this.state.twitterPerson;
-
-			fetchScore(user_name, profile, 'dev').then(
+			fetchScore(user_name, profile, '').then(
 				reqPer => {
-					reqMessage = 'Gracias por registrarte. Tus datos serán revisados por nuestros inversores. Por favor dar clic al boton de la parte superior derecha "iniciar sesion" y elegir "solicitante" ó dar clic a la imagen "Rappi" para volver al inicio';
+					reqMessage = 'Todo correcto';
 
 					if (reqPer.status == 'ok') {
 						reqScore = reqPer.content.score;
@@ -92,14 +91,13 @@ export class Perfilamiento extends Component {
 					});
 
 					this.props.updateWorker(personaPerfil);
-                                           
+
 
 				});
-				
+
 
 		});
-		
-		//this.props.history.push('/login-solicitante');
+
 	};
 
 	static propTypes = {
@@ -113,16 +111,18 @@ export class Perfilamiento extends Component {
 
 	render() {
 		const fase = this.state.fase;
-		const mensaje = this.state.mensaje;
+		let mensaje = '';
+		let detalle = '';
 		const scoreString = this.state.score;
-		const status = this.state.status;
+		let status = this.state.status;
+		let buttonSesion = '';
 
 		if (fase == 'loading') {
 			return (
 				<React.Fragment>
 					<div className='container my-5 py-3 border rounded'>
 						<h1 className='px-4 font-weight-bold'>Perfilamiento</h1>
-						<div className="loaderContainer row d-flex justify-content-center">
+						<div className="d-flex flex-column justify-content-center align-items-center">
 							<div className="loaderPerfilar"></div>
 							<div><p className="text-center text-dark">Cargando...</p></div>
 						</div>
@@ -135,16 +135,28 @@ export class Perfilamiento extends Component {
 			let textScore = '';
 			if (!isNaN(score)) {
 				score = Math.round(score * 100);
-				textScore = 'Su puntaje es de ' + score + '%';
+				textScore = score + '%';
+			}
+
+			if (status == 'ok') {
+				mensaje = <div className="h3 mt-5 mb-3">Gracias por registrarte. <br />Tus datos serán revisados por nuestros inversores</div>;
+				detalle = 'Tu puntaje';
+				buttonSesion = <div className="btn-inicioSesion">Iniciar sesión</div>;
+			}
+			if (status == 'error') {
+				mensaje = <div className="h3 mt-5 mb-3">Error. <br />{detalle}</div>;
+				detalle = this.state.mensaje;
 			}
 
 			return (
 				<React.Fragment>
 					<div className='container my-5 py-3 border rounded'>
 						<h1 className='px-4 font-weight-bold'>Perfilamiento</h1>
-						<div className="pagination-centered">
-							<p className={`text-center ${status == "error" ? "text-danger" : "text-success"}`}>{mensaje}</p>
-							<p className="text-center text-secondary">{textScore}</p>
+						<div className="d-flex flex-column justify-content-center align-items-center">
+							<div className={`text-center ${status == "error" ? "text-danger" : "text-body"}`}>{mensaje}</div>
+							<div className="h4 text-center m-1">{detalle}</div>
+							<div className="h1 text-center m-1 scoreAns font-weight-bold">{textScore}</div>
+							<div className="text-center"><a href="/login-solicitante">{buttonSesion}</a></div>
 						</div>
 					</div>
 				</React.Fragment>
@@ -157,14 +169,15 @@ export class Perfilamiento extends Component {
 						<h1 className='px-4 font-weight-bold'>Perfilamiento</h1>
 						<form className='row px-5 py-3' onSubmit={this.SubmitHandler}>
 							<CSRFToken />
-							<p className=''>
+							<p className='mb-5 h4'>
 								Las siguientes preguntas nos permitirán conocerte mejor.
 								Es importante que contestes de forma detallada cada pregunta. Algunas preguntas
 								tienen un mínimo de caracteres requerido.
                     </p>
 
-							<div className='form-group h-100 w-100 border-bottom'>
-								<label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Piensa que un día te ganas la lotería, qué sería lo primero que harías? En qué te gastarías el dinero? Con quienes te gastarías el dinero y por qué con esas personas?</h2></label>
+							<div className='form-group h-100 w-100 border-bottom mb-5'>
+							<p className='m-0 text-dark'>Piensa que un día te ganas la lotería, qué sería lo primero que harías? En qué te gastarías el dinero? Con quienes te gastarías el dinero y por qué con esas personas?</p>
+								<label htmlFor="Pregunta"></label>
 								<textarea
 									className="form-control border-bottom"
 									minLength="150"
@@ -177,8 +190,9 @@ export class Perfilamiento extends Component {
 								/>
 							</div>
 
-							<div className='form-group h-100 w-100 border-bottom'>
-								<label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Elige 3 cosas que puedes llevar a una isla desierta en la que vas a vivir durante 3 meses, ¿cuáles serían? ¿cómo las utilizarías? Si tras dos meses pudiera cambiar una de esas cosas, por qué la cambiarías?</h2></label>
+							<div className='form-group h-100 w-100 border-bottom mb-5'>
+							<p className='m-0 text-dark'>Elige 3 cosas que puedes llevar a una isla desierta en la que vas a vivir durante 3 meses, ¿cuáles serían? ¿cómo las utilizarías? Si tras dos meses pudiera cambiar una de esas cosas, por qué la cambiarías?</p>
+								<label htmlFor="Pregunta"></label>
 								<textarea
 									className="form-control border-bottom"
 									name="pregunta2"
@@ -191,8 +205,9 @@ export class Perfilamiento extends Component {
 								/>
 							</div>
 
-							<div className='form-group h-100 w-100 border-bottom'>
-								<label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Si tuvieras que elegir un superpoder entre, entender y hablar todos los idiomas, ser invisible, viajar en el tiempo, respirar bajo el agua y hablar con los animales, qué superpoder elegirías?</h2></label>
+							<div className='form-group h-100 w-100 border-bottom mb-5'>
+							<p className='m-0 text-dark'>Si tuvieras que elegir un superpoder entre, entender y hablar todos los idiomas, ser invisible, viajar en el tiempo, respirar bajo el agua y hablar con los animales, qué superpoder elegirías?</p>
+								<label htmlFor="Pregunta"></label>
 								<textarea
 									className="form-control border-bottom"
 									name="pregunta3"
@@ -206,16 +221,17 @@ export class Perfilamiento extends Component {
 							</div>
 
 							<div className='form-group h-100 w-100 border-bottom'>
-								<label htmlFor="Pregunta"><h2 className='p-1 h4 m-0'>Twitter</h2><p>Si tienes usuario de twitter y es público por favor ingresalo</p></label>
+								<p className='m-0 text-dark'>Twitter</p><p>Si tienes usuario de twitter y es público por favor ingresalo de esta forma: @holbertonschool</p>
+								<label htmlFor="Pregunta"></label>
 								<textarea
 									className="form-control border-bottom"
 									name="twitterPerson"
-									placeholder="Twitter"
+									placeholder="@holbertonschool"
 									value={this.state.twitterPerson}
 									onChange={this.changeHandler}
 								/>
 							</div>
-							<button className='' onClick={this.handleClick}>Enviar</button>
+							<button className="float-right btn-rappi mt-5" onClick={this.handleClick}>Enviar</button>
 						</form>
 					</div>
 				</React.Fragment>

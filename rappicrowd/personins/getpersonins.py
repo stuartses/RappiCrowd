@@ -23,6 +23,7 @@ def get(user_name='', profile='', mode=''):
     if (mode == 'dev'):
         profile = 'lorem'
 
+    user_name = user_name.strip()
     if (profile == '' and user_name == ''):
         msg_error = {'status': 'error',
                      'message': 'noinput',
@@ -43,6 +44,9 @@ def get(user_name='', profile='', mode=''):
         profile_len = len(profile.split())
 
     if (user_name is not ''):
+        if (user_name[0] != '@'):
+            user_name = '@' + user_name
+
         # for develop using a json file with a response and avoid request
         if (mode == 'dev'):
             tw_dict = {}

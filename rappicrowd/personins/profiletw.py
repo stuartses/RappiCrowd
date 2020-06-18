@@ -9,6 +9,7 @@ import tweepy
 from datetime import datetime, timezone
 from dateutil.parser import parse
 from personins import insights
+from pathlib import Path
 
 
 def get_tw(user_name):
@@ -28,10 +29,15 @@ def get_tw(user_name):
                 'message': 'notwitter',
                 'detail': 'Twitter user_name field is empty'}
 
-    consumer_key = ''
-    consumer_secret = ''
-    access_token = ''
-    access_token_secret = ''
+    # get API Tokens
+    tokens_tw = {}
+    with open(str(Path.home()) + '/.tokens/twitter.json', 'r') as tok_tw:
+            tokens_tw = json.loads(tok_tw.read())
+
+    consumer_key = tokens_tw['consumer_key']
+    consumer_secret = tokens_tw['consumer_secret']
+    access_token = tokens_tw['access_token']
+    access_token_secret = tokens_tw['access_token_secret']
 
     # OAuth process, using the keys and tokens
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -75,11 +81,5 @@ def get_tw(user_name):
     tw_dict['content']['contentItems'] = tw_list
     tw_dict['status'] = 'ok'
     tw_dict['message'] = 'twitsucessful'
-
-    """temporary save in file"""
-    """
-    with open('personins/twitter-check.json', 'w') as f:
-        f.write(json.dumps(tw_dict))
-    """
 
     return tw_dict

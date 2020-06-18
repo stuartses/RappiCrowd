@@ -2,15 +2,9 @@ body {
   background-color: #FAFAF8 !important;
 }
 
-.loaderContainer {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
 .loaderPerfilar {
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border-top: 16px solid #ff5b49;
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -20,4 +14,22 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.btn-inicioSesion {
+	background-image: linear-gradient(130deg,#ff9259 0,#ff2426 70%);
+	color: white;
+	width: 120px;
+	padding: 5px 5px;
+	margin: 40px;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 30px;
+	text-align: center;
+	font-weight: bold;
+	border: none;
+}
+
+.scoreAns {
+	color: #ff5b49;
 }

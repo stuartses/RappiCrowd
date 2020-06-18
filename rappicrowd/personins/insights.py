@@ -9,6 +9,7 @@ from requests.auth import HTTPBasicAuth
 import requests
 import json
 from personins import score
+from pathlib import Path
 
 
 def send(type_in='', data_json='', data_text='', mode=''):
@@ -36,10 +37,18 @@ def send(type_in='', data_json='', data_text='', mode=''):
                 'message': 'noprofile',
                 'detail': 'No profile text content'}
 
-    url = ""
+    # get API Tokens
+    tokens_ibm = {}
+    with open(str(Path.home()) + '/.tokens/ibm.json', 'r') as tok_ibm:
+            tokens_ibm = json.loads(tok_ibm.read())
 
-    auth = HTTPBasicAuth(
-        'apikey', '')
+    # check if found tokens
+    if (not tokens_ibm):
+        mode = 'dev'
+
+    url = tokens_ibm['url']
+    apikey = tokens_ibm['apikey']
+    auth = HTTPBasicAuth('apikey', apikey)
 
     if (type_in == 'json'):
         headers = {
@@ -85,14 +94,14 @@ def send(type_in='', data_json='', data_text='', mode=''):
     score_dict['word_count'] = r_dict['word_count']
     score_dict['score'] = calc
 
+    # keep original score save
+    score_json = {}
+    score_json['score'] = calc
+    score_json['personality'] = personal_dict
+
+    score_dict['json'] = json.dumps(score_json)
     send_dict['status'] = 'ok'
     send_dict['message'] = 'ibmsucessfull'
     send_dict['content'] = score_dict
-
-    """temporary save in file """
-    """
-    with open('personins/ibm-check.json', 'w') as f:
-        f.write(json.dumps(r_dict))
-    """
 
     return send_dict
