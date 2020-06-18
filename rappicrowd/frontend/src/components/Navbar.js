@@ -8,7 +8,8 @@ import './styles/Navbar.css'
 export class Navbar extends Component {
     render() {
         return(
-            <div className="Navbar">
+            <React.Fragment>
+            <nav className="Navbar navbar-expand-lg">
                 <div className="container-fluid">               		
 		            <Link to="/"> 		
                         <img className='Navbar__brand-logo'
@@ -17,7 +18,7 @@ export class Navbar extends Component {
                         </img>
                     </Link>
                     <ul className="navbar-nav mr-auto mx-3 float-right">
-                        <li className="nav-item dropdown">
+                        <li className="nav-item">
                             <a
                                 className="nav-link dropdown-toggle float-right text-dark text-uppercase font-weight-bold"
                                 href="#"
@@ -41,14 +42,18 @@ export class Navbar extends Component {
                                 </Link>
                             </div>
                         </li>
+                        <li className='nav-item'>
+                            <Link
+                                to='/about'
+                                className='float-right mt-2 mx-3 text-dark text-uppercase font-weight-bold align-middle'
+                                id="signup">Acerca de
+                            </Link>
+                        </li>
                     </ul>
-                    <Link
-                        to='/about'
-                        className='float-right mx-3 text-dark text-uppercase font-weight-bold align-middle'
-                        id="signup">Acerca de
-                    </Link>
+
                 </div>
-            </div>
+            </nav>
+            </React.Fragment>
         )
     }   
 }

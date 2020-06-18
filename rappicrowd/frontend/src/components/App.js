@@ -1,3 +1,5 @@
+
+
 /* App.js */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -37,7 +39,7 @@ class App extends Component {
 					<Route exact path='/login-inversor' component={LoginInversor}></Route>
 					<Route exact path='/registro-domiciliario' component={RegistroDomiciliario}></Route>
 					<Route exact path='/login-solicitante' component={LoginSolicitante}></Route>
-					<Route exact path='/listado-domiciliarios' component={SolicitanteList}></Route>
+					<Route exact path='/inversor/:ced' component={SolicitanteList}></Route>
 					<Route exact path='/perfilamiento' component={Perfilamiento}></Route>
 					<Route exact path='/invertir-en/:ced' component={InvertirEn}></Route>
 					<Route exact path='/solicitante/:ced' component={SolicitanteURL}></Route>

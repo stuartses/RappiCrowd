@@ -114,8 +114,9 @@ export class RegistroDomiciliario extends Component {
 							</div>
 
 							<div className='col-9 p-4 m-0'>
+								<h2 className='pt-0 h3 font-weight-bold'>Comencemos con datos básicos</h2>
 								<div className='form-row'>
-									<h2 className='pt-0 h3 font-weight-bold'>Comencemos con datos básicos</h2>
+									
 									<div className='form-group'>
 										<div className='form-input'>
 											<label htmlFor="NombreDomiciliario" required>Nombre completo</label>
