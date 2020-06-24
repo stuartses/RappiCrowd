@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/root/rappicrowd/rappicrowd"
+$VIRTUAL_ENV = r"/home/stuart/repositories/RappiCrowd/rappicrowd/rappicrowd"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

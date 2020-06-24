@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/root/rappicrowd/rappicrowd'
+set -gx VIRTUAL_ENV '/home/stuart/repositories/RappiCrowd/rappicrowd/rappicrowd'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3

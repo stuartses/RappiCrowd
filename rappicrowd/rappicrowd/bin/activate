@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/root/rappicrowd/rappicrowd'
+VIRTUAL_ENV='/home/stuart/repositories/RappiCrowd/rappicrowd/rappicrowd'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
