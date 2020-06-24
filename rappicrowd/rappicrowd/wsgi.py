@@ -5,6 +5,9 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
+
+This file is important to use gunicorn application server
+
 """
 
 import os

@@ -1,3 +1,5 @@
+''' This is the file where redux calls the models '''
+
 import { combineReducers } from 'redux';
 import countries from './countries';
 import docutypes from './docutypes';

@@ -25,7 +25,7 @@ SECRET_KEY = '2tf!4kn5i46g79pnifc&b_ly-vrf9=$mgz_0s8v1c2=9&z3$!+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['161.35.98.240', 'localhost']
+ALLOWED_HOSTS = ['161.35.98.240', 'localhost'] # ip of the server and localhost in case local test
 
 
 # Application definition
@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rappicrowdContainer.apps.RappicrowdcontainerConfig',
-    'rest_framework',
-    'corsheaders',
-    'frontend',
+    'rest_framework', # creation of rest apis
+    'corsheaders', #cross site origin shared 
+    'frontend', #access to frontend folder app
     'personins.apps.PersoninsConfig', # IBM insights
 ]
 
@@ -55,11 +55,11 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'rappicrowd.urls'
+ROOT_URLCONF = 'rappicrowd.urls' #file where the system 
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True #activate all the origin from cors 
 
-SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__)) # complete root of the paths
 
 TEMPLATES = [
     {
@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'rappicrowd.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rappicrowd',
-        'USER': 'rappicrowd',
-        'PASSWORD': 'rappicrowd',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # postgresql configuration database
+        'NAME': 'rappicrowd', # name of the database of the project
+        'USER': 'rappicrowd', # user to access administrative way from postgresql 
+        'PASSWORD': 'rappicrowd', # password to access administrative way from postgresql
+        'HOST': 'localhost', # physical space where the database is stored
         'PORT': '',
     }
 }
@@ -132,8 +132,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = '/static/' # url to access static folder
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/') #root to access static folder
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/' # url to access media folder
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media/') # root to access media folder

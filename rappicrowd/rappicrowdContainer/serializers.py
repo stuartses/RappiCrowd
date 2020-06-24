@@ -1,3 +1,5 @@
+''' serializers for all the views of the project. This enables the format json according the configuration of each one '''
+
 from rest_framework import serializers
 from .models import Countries
 from .models import States
@@ -9,6 +11,8 @@ from .models import Workers
 from .models import Investors
 from .models import InvestorsPerWorkers
 
+
+''' every serializer takes the data of the model and create a format json '''
 
 class CountriesSerializer(serializers.ModelSerializer):
     '''serializer Countries model'''
@@ -65,7 +69,7 @@ class InvestorsPerWorkersSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class InvestorsPerWorkersTotalAmountPerWorkerSerializer(serializers.ModelSerializer):
-    '''serializer InvestorsPerWorkers model'''
+    '''serializer InvestorsPerWorkers model. In this case, this serializer only takes the id and the amount of the model'''
 
     class Meta:
         model = InvestorsPerWorkers
