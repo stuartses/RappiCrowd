@@ -1,3 +1,5 @@
+''' keywords to access the actions methods'''
+
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_DOCUTYPES = "GET_DOCUTYPES";
 export const GET_STATES = "GET_STATES";

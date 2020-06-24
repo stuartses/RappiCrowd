@@ -1,3 +1,6 @@
+''' This is the administrator django. We register all the models that we need
+    in the administrative way'''
+
 from django.contrib import admin
 from .models import Countries
 from .models import States
