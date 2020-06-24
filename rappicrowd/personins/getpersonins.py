@@ -15,6 +15,9 @@ def get(user_name='', profile='', mode=''):
     Arguments:
         user_name: screen name of user in Twitter
         profile: long string with text written by user
+        mode: string, for developer mode use 'dev'
+              The developer mode avoid make request to external API
+              and use JSON demo files
 
     Return:
         json with data analysis

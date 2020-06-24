@@ -1,3 +1,6 @@
+"""
+Urls for Personins Web Api. This is needed for Django Framework
+"""
 from django.urls import path
 
 from . import views
