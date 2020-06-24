@@ -31,12 +31,14 @@ export class SolicitanteList extends Component {
 		this.props.getStates();
     };
 
-	render() {	    	 		
+	render() {	
+		            /* create variables to receive the models data*/ 
 		            const solicitantes = this.props.workers;	      	
 			    const invperwor = this.props.investorsperworkers;          
 			    const ciudades = this.props.cities;
 			    const departamentos = this.props.states;	
 
+		            /* create two empty lists and one dictionary to make operations */ 
 			    const list_ced = [];	
 			    const list_amount = [];	
 			    const list_final = {};	     		   
@@ -45,24 +47,31 @@ export class SolicitanteList extends Component {
 			    const list_ciu = [];	
 
 			    const list_dep = [];
+
+		            /* store every register with your worker id and amount */
 		            			                   
 			    invperwor.forEach(ipw => {
 		    	      list_ced.push(ipw.investorPerWorkerWorkerCed);		    		       		    
 		    	      list_amount.push(ipw.investorPerWorkerAmount);	    
 		    	    });	    		    	               		            
 		            
+		            /* create a dictionary where the worker id gets the total with sum amount per worker id*/  
 
 			    for (i = 0; i < list_ced.length; i++) {               		    
 		    	      list_final[list_ced[i]] = (list_final[list_ced[i]] || 0) + list_amount[i];      	             	 
 		    	    }
 			
+		            /* create a list where every city id gets the city name */ 
 		            ciudades.forEach(ciu => {
 	         	      list_ciu[ciu.cityId] = ciu.cityName;  
               		    });
 
+		            /* create a list where every state id gets the state name */
 			    departamentos.forEach(dep => {
 		    	      list_dep[dep.stateId] = dep.stateName;
 			    });	
+
+		            /* include new keys total, cityName, depName, cedInv into the dictionary with the workers info */
 
 		            solicitantes.forEach(s => {
 		    	      s['total'] = list_final[s.workerCed];  		              		    
@@ -78,6 +87,7 @@ export class SolicitanteList extends Component {
 		            <h1>¿En quién invertir?</h1>
 		            <h2>Esta es la lista de los solicitantes a préstamo.</h2>
 		            <table className='table table-striped'>
+		                /* uuid is used to get an id for every element into the table */
 		              	<thead key={uuid()}>
 		                	<tr key={uuid()}>
 								<th key={uuid()}>Nombre</th>
@@ -93,7 +103,8 @@ export class SolicitanteList extends Component {
                                                                 <th key={uuid()}>Score</th>
 								<th key={uuid()}></th>
 		                	</tr>
-		              		</thead>		              
+		              		</thead>
+		                                  /* ternary operator between parenthesis */
 							{!solicitantes || solicitantes.length <= 0 ? (
 								<tbody key={uuid()}>	
 									<tr key={uuid()}>
@@ -102,7 +113,8 @@ export class SolicitanteList extends Component {
 										</td>
 									</tr>
 								</tbody>	
-							) : (			       	
+							) : (	       	
+
 							solicitantes.map((solicitante) => (
 							<tbody key={uuid()}>   
 								<tr key={uuid()}>
@@ -114,6 +126,7 @@ export class SolicitanteList extends Component {
 									<td key={uuid()}>{solicitante.workerSpentsPerMonth}</td>
 									<td key={uuid()}>{solicitante.workerDaysPerWeek}</td>
 									<td key={uuid()}>{solicitante.workerLabourHoursPerDay}</td>
+								        /* moment coverts the format of workerCreatedAt */
 									<td key={uuid()}>{moment(solicitante.workerCreatedAt).format('DD-MM-YYYY')}</td>
 								        <td key={uuid()}>{solicitante.total}</td>
 								        <td key={uuid()}>{solicitante.workerScore}</td>
@@ -133,6 +146,7 @@ export class SolicitanteList extends Component {
 	}		
 }
 
+/* map the models into state to props to send the info into the react schema */
 const mapStateToProps = state => ({
   workers: state.workers.workers,
   investorsperworkers: state.investorsperworkers.investorsperworkers,
@@ -140,4 +154,5 @@ const mapStateToProps = state => ({
   states: state.states.states	
 });
 
+/* export the component to App.js */
 export default connect(mapStateToProps, { getWorkers, getInvestorsPerWorkers, getCities, getStates } )(SolicitanteList);
