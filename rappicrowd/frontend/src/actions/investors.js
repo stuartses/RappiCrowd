@@ -1,4 +1,4 @@
-'''import axios to use the request methods'''
+// import axios to use the request methods
 import axios from "axios";
 import { GET_INVESTORS, ADD_INVESTOR } from "./types";
 import { getToken } from '../utils/get-token';
@@ -9,7 +9,7 @@ const headers = {
   "X-CSRFToken": csrftoken
 }
 
-''' call function get request dispatch to call the root with ip'''
+// call function get request dispatch to call the root with ip
 export const getInvestors = () => dispatch => {
   axios
     .get("/investors")
@@ -22,7 +22,7 @@ export const getInvestors = () => dispatch => {
     .catch(err => console.log(err))
 }
 
-''' call function post request dispatch to call the root with ip'''
+// call function post request dispatch to call the root with ip
 export const addInvestor = (investor) => dispatch => {
   axios
     .post("/investors", investor, {

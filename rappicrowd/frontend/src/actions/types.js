@@ -1,4 +1,4 @@
-''' keywords to access the actions methods'''
+// keywords to access the actions methods
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_DOCUTYPES = "GET_DOCUTYPES";

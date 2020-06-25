@@ -1,4 +1,4 @@
-'''import axios to use the request methods'''
+// import axios to use the request methods
 import axios from "axios";
 import { GET_WORKERS, ADD_WORKER, UPDATE_WORKER } from "./types";
 import { getToken } from '../utils/get-token';
@@ -9,7 +9,7 @@ const headers = {
   "X-CSRFToken": csrftoken
 }
 
-''' call function get request dispatch to call the root with ip'''
+// call function get request dispatch to call the root with ip
 export const getWorkers = () => dispatch => {
   axios
     .get("/workers")
@@ -22,7 +22,7 @@ export const getWorkers = () => dispatch => {
     .catch(err => console.log(err))
 }
 
-''' call function post request dispatch to call the root with ip'''
+// call function post request dispatch to call the root with ip
 export const addWorker = (worker) => dispatch => {
   axios
     .post("/workers", worker, {
@@ -39,7 +39,7 @@ export const addWorker = (worker) => dispatch => {
     })
 }
 
-''' call function patch request dispatch to call the root with ip'''
+// call function patch request dispatch to call the root with ip
 export const updateWorker = (worker) => dispatch => {
   axios
     .patch(`/workers/update/${worker.workerCed}/`, worker, {
