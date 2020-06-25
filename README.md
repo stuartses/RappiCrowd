@@ -26,7 +26,52 @@ This project was developed with these technologies:
 ### Demo
 The project is in a temporary location [Link](http://161.35.98.240:8000).
 
-### Authors
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine.
+
+### Prerequisites
+You need to have and install:
+```
+Ubuntu 18.04 LTS
+Python3
+Node JS 12.18.1 LTS
+postgresql
+```
+For Python:
+```
+virtualenv
+django
+djangorestframework
+psycopg2
+tweepy
+request
+python-dateutil
+```
+
+### Installing
+After you have cloned this repository, you need to create a database, with user and password according to "settings.py".
+
+This repository don't include de API Key of IBM and Twitter for security reasons. Because that, you won't make a real request to those API.
+
+Open de directory rappicrowd/
+```
+RappiCrowd$ cd rappicrowd/
+RappiCrowd/rappicrowd$ npm run dev
+```
+Stop process or open a new terminal and run virtualenv.
+```
+RappiCrowd/rappicrowd$ source rappicrowd/bin/activate
+(rappicrowd) RappiCrowd/rappicrowd$ 
+```
+### Running
+Run the API
+```
+(rappicrowd) RappiCrowd/rappicrowd$ python manage.py runserver localhost:8000
+```
+Open in a browser http://localhost:8000
+
+## Authors
 * **Diego Betancourt Quintero** - [GitHub](https://github.com/dfbq91)
 * **Orlando Gomez Lopez** - [GitHub](https://github.com/oran2527)
 * **Stuart Echeverry Solarte** - [GitHub](https://github.com/stuartses)
