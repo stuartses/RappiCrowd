@@ -1,4 +1,4 @@
-''' Configuration for the method store from redux '''
+// Configuration for the method store from redux
 
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -16,4 +16,3 @@ const store = createStore(
 );
 
 export default store;
-
