@@ -1,4 +1,4 @@
-''' This is webpack. This file controls the configuration according type files and rules '''
+// This is webpack. This file controls the configuration according type files and rules
 module.exports = {
   module: {
     rules: [
