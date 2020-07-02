@@ -26,7 +26,7 @@ function fetchScore (userName, profile, mode) {
     if (response.ok) {
       return response.json();
     } else {
-      console.log('Fetch error');
+      console.log('Fetch error', response);
     }
   }).then((json) => {
     return json;
